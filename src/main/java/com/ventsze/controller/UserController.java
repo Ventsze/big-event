@@ -45,7 +45,6 @@ public class UserController {
             return Result.error("用户名错误");
         }
 
-
         //判断密码是否正确 loginUser对象中的password是密文
         if(Md5Util.getMD5String(password).equals(loginUser.getPassword())){
             //登录成功
@@ -53,7 +52,6 @@ public class UserController {
         }
 
         return Result.error("密码错误");
-
 
     }
 
