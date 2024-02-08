@@ -9,4 +9,6 @@ public interface UserService {
 
     //注册
     void register(String username, String password);
+
+    void update(User user);
 }
