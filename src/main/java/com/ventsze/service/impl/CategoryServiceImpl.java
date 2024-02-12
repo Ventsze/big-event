@@ -35,4 +35,10 @@ public class CategoryServiceImpl implements CategoryService {
         Integer userId = (Integer) map.get("id");
         return categoryMapper.list(userId);
     }
+
+    @Override
+    public void update(Category category) {
+        category.setUpdateTime(LocalDateTime.now());
+        categoryMapper.update(category);
+    }
 }

@@ -26,4 +26,10 @@ public class CategoryController {
         List<Category> cs = categoryService.list();
         return Result.success(cs);
     }
+
+    @PutMapping
+    public Result update(@RequestBody @Validated Category category){
+        categoryService.update(category);
+        return Result.success();
+    }
 }
