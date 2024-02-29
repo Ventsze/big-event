@@ -6,6 +6,7 @@ import com.ventsze.service.ArticleService;
 import com.ventsze.utils.JwtUtil;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
@@ -31,7 +32,7 @@ public class ArticleController {
     private ArticleService articleService;
 
     @PostMapping
-    public Result add(@RequestBody Article article){
+    public Result add(@RequestBody @Validated Article article){
         articleService.add(article);
         return Result.success();
 
