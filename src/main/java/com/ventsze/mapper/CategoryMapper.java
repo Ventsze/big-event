@@ -22,4 +22,8 @@ public interface CategoryMapper {
     //更新
     @Update("update category set category_name=#{categoryName},category_alias=#{categoryAlias},update_time=#{updateTime} where id=#{id}")
     void update(Category category);
+
+    //根据id查询
+    @Select("select * from category where id=#{id}")
+    Category findById(Integer id);
 }

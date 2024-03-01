@@ -11,4 +11,6 @@ public interface ArticleService {
     PageBean<Article> list(Integer pageNum, Integer pageSize, Integer categoryId, String state);
 
     void update(Article article);
+
+    Article findById(Integer id);
 }

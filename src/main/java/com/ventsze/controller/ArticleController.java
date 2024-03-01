@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -49,11 +50,20 @@ public class ArticleController {
         return Result.success(pb);
     }
 
+    @GetMapping("/detail")
+    public Result<Article> detail(Integer id){
+        //根据id查询文章
+        Article a = articleService.findById(id);
+        return Result.success(a);
+    }
+
     @PutMapping
     public Result update(@RequestBody Article article){
         articleService.update(article);
         return Result.success();
     }
+
+
 
 
 }
