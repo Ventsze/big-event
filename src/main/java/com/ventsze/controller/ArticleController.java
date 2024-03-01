@@ -36,7 +36,6 @@ public class ArticleController {
     public Result add(@RequestBody @Validated Article article){
         articleService.add(article);
         return Result.success();
-
     }
 
     @GetMapping
@@ -48,7 +47,13 @@ public class ArticleController {
     ){
         PageBean<Article> pb = articleService.list(pageNum,pageSize,categoryId,state);
         return Result.success(pb);
-
     }
+
+    @PutMapping
+    public Result update(@RequestBody Article article){
+        articleService.update(article);
+        return Result.success();
+    }
+
 
 }

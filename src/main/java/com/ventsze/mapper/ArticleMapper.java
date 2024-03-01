@@ -3,6 +3,7 @@ package com.ventsze.mapper;
 import com.ventsze.pojo.Article;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Update;
 
 import java.util.List;
 
@@ -14,6 +15,8 @@ public interface ArticleMapper {
             "values(#{title},#{content},#{coverImg},#{state},#{categoryId},#{createUser},#{createTime},#{updateTime})")
     void add(Article article);
 
-
     List<Article> list(Integer userId, Integer categoryId, String state);
+
+    @Update(("update article set title=#{title},content=#{content},cover_img=#{coverImg},state=#{state},category_id=#{categoryId} where id=#{id}"))
+    void update(Article article);
 }
